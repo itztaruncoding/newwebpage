@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Star, TrendingUp, ArrowRight, ShieldCheck, Sparkles, BarChart2, PenLine } from "lucide-react";
+import checkmarkBoxIcon from "@/assets/checkmark-box.svg";
 const reviews = [{
   title: "Semrush Review",
   category: "SEO & Research",
@@ -184,7 +185,7 @@ export default function Reviews() {
     showModal && <div className="fixed inset-0 z-50 flex items-center justify-center p-4">{<div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={handleClose}>{<div onClick={e => e.stopPropagation()} className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-auto mt-[8vh] overflow-hidden">{// Modal Header
           <div className="flex items-center justify-between px-7 py-5 border-b border-slate-100">{<div className="flex items-center gap-3">{<div className="w-9 h-9 rounded-xl bg-blue-100 flex items-center justify-center">{<PenLine className="w-4 h-4 text-blue-600" />}</div>}{<h2 className="text-xl font-black text-slate-900">Write a Review</h2>}</div>}{<button onClick={handleClose} className="text-slate-400 hover:text-slate-700 text-2xl leading-none transition-colors">×</button>}</div>}{
           // Success State
-          submitted ? <div className="px-7 py-14 text-center">{<div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">{<span className="text-3xl">✅</span>}</div>}{<h3 className="text-2xl font-black text-slate-900 mb-2">Thank you!</h3>}{<p className="text-slate-500 mb-6">Your review has been submitted and will be published after verification.</p>}{<button onClick={handleClose} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition-all">Close</button>}</div> // Form State
+          submitted ? <div className="px-7 py-14 text-center">{<div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5"><span><img src={checkmarkBoxIcon} className="w-8 h-8" alt="success" /></span></div>}{<h3 className="text-2xl font-black text-slate-900 mb-2">Thank you!</h3>}{<p className="text-slate-500 mb-6">Your review has been submitted and will be published after verification.</p>}{<button onClick={handleClose} className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition-all">Close</button>}</div> // Form State
           : <form onSubmit={handleSubmit} className="px-7 py-6 flex flex-col gap-4 max-h-[75vh] overflow-y-auto">{// Name + Role row
             <div className="grid grid-cols-2 gap-3">{<div>{<label className="block text-xs font-bold text-slate-600 mb-1">Your Name *</label>}{<input required={true} type="text" placeholder="Alex J." value={form.name} onChange={e => setForm({
                   ...form,

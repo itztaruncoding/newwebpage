@@ -3,6 +3,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ChevronDown, CircleHelp, Sparkles, HelpCircle, Mail, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
+import checkmarkIcon from "@/assets/checkmark.svg";
+import lightningIcon from "@/assets/lightning.svg";
+
 const faqs = [{
   question: "How do I find the best deals on MarketyDeals?",
   answer: "You can browse by category, compare tools, and use the curated deal listings to find the most relevant offers for your business. We filter out expired codes to ensure every deal shown is fully active."
@@ -51,14 +54,14 @@ export default function FAQ() {
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut"
-              }} className="absolute top-4 left-4 w-[240px] bg-white p-4 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-3.5">{<div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 font-bold">✓</div>}{<div>{<h4 className="font-black text-slate-800 text-xs">Deals Verified</h4>}{<p className="text-[10px] text-slate-500">Checked manually every 24h</p>}</div>}</motion.div>}{<motion.div animate={{
+              }} className="absolute top-4 left-4 w-[240px] bg-white p-4 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-3.5">{<div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center p-2"><img src={checkmarkIcon} className="w-6 h-6" alt="check" /></div>}{<div>{<h4 className="font-black text-slate-800 text-xs">Deals Verified</h4>}{<p className="text-[10px] text-slate-500">Checked manually every 24h</p>}</div>}</motion.div>}{<motion.div animate={{
                 y: [0, 8, 0]
               }} transition={{
                 duration: 4.5,
                 repeat: Infinity,
                 ease: "easeInOut",
                 delay: 0.5
-              }} className="absolute bottom-4 right-4 w-[240px] bg-white p-4 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-3.5">{<div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold">⚡</div>}{<div>{<h4 className="font-black text-slate-800 text-xs">Instant Copy</h4>}{<p className="text-[10px] text-slate-500">Click card to save promo code</p>}</div>}</motion.div>}</div>}</div>}</div>}{// Accordion Section
+              }} className="absolute bottom-4 right-4 w-[240px] bg-white p-4 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-3.5">{<div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center p-2"><img src={lightningIcon} className="w-6 h-6" alt="lightning" /></div>}{<div>{<h4 className="font-black text-slate-800 text-xs">Instant Copy</h4>}{<p className="text-[10px] text-slate-500">Click card to save promo code</p>}</div>}</motion.div>}</div>}</div>}</div>}{// Accordion Section
         <div className="max-w-3xl mx-auto space-y-4">{faqs.map((item, index) => {
             const isOpen = openIndex === index;
             return <div className={`rounded-2xl border transition-all duration-300 overflow-hidden bg-white ${isOpen ? "border-blue-500/50 shadow-md ring-1 ring-blue-500/10" : "border-slate-200 shadow-sm hover:border-slate-300 hover:shadow-md"}`}>{<button className="flex w-full items-center justify-between text-left p-6" onClick={() => setOpenIndex(isOpen ? null : index)}>{<span className={`text-lg font-bold transition-colors ${isOpen ? "text-blue-600" : "text-slate-800"}`}>{item.question}</span>}{<ChevronDown className={`w-5 h-5 transition-transform ${isOpen ? "rotate-180 text-blue-600" : "text-slate-400"}`} />}</button>}{isOpen && <div className="px-6 pb-6 pt-1 border-t border-slate-100 bg-slate-50/40">{<p className="text-slate-600 text-sm leading-relaxed">{item.answer}</p>}</div>}</div>;

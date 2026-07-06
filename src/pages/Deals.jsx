@@ -4,6 +4,7 @@ import { deals } from "@/data/deals";
 import { DealCard } from "@/components/DealCard";
 import { Filter, ChevronDown, Tag, Zap, TrendingUp, Search, ShieldCheck, Sparkles, X } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
+import searchIcon from "@/assets/search.svg";
 export default function Deals() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -132,5 +133,5 @@ export default function Deals() {
                 }} className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors ${sortBy === opt.value ? "bg-blue-600/10 text-blue-600 font-bold" : "hover:bg-muted text-foreground"}`}>{opt.label}</button>)}</div>}</div>}</div>}{// Result count
           <p className="text-sm text-muted-foreground mb-6 font-medium">Showing {<span className="text-foreground font-bold">{sorted.length}</span>} deals{activeCategory !== "All Deals" ? <span> in {<span className="text-blue-600 font-bold">{activeCategory}</span>}</span> : null}</p>}{
           // Deals grid
-          sorted.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">{sorted.map((deal, i) => <DealCard deal={deal} index={i} />)}</div> : <div className="text-center py-24 text-muted-foreground">{<p className="text-5xl mb-4">🔍</p>}{<p className="text-xl font-bold mb-2">No deals found</p>}{<p className="text-sm">Try selecting a different category.</p>}</div>}</div>}</section>}</main>}{<Footer />}</div>;
+          sorted.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">{sorted.map((deal, i) => <DealCard deal={deal} index={i} />)}</div> : <div className="text-center py-24 text-muted-foreground">{<p className="mb-4 flex justify-center"><img src={searchIcon} className="w-16 h-16" alt="search" /></p>}{<p className="text-xl font-bold mb-2">No deals found</p>}{<p className="text-sm">Try selecting a different category.</p>}</div>}</div>}</section>}</main>}{<Footer />}</div>;
 }
